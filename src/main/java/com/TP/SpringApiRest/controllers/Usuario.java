@@ -23,7 +23,7 @@ class Usuario {
     }
 
     @RequestMapping("/{id}")
-    public UsuarioDTO getUsuarioById(@PathVariable String id) {
+    public UsuarioDTO getUsuarioById(@RequestParam String id) {
         return usuarioServiceimpl.findById(id);
     }
     @PostMapping
@@ -31,12 +31,12 @@ class Usuario {
         return usuarioServiceimpl.save(usuarioCreate);
     }
     @PutMapping("/{id}")
-    public UsuarioDTO updateUsuario(@PathVariable  String id, @RequestBody UsuarioEdit usuarioEdit) {
+    public UsuarioDTO updateUsuario(@RequestParam  String id, @RequestBody UsuarioEdit usuarioEdit) {
         return usuarioServiceimpl.update(usuarioEdit, id);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteUsuario(@PathVariable  String id) {
+    public void deleteUsuario(@RequestParam  String id) {
         usuarioServiceimpl.deleteById(id);
     }
 
